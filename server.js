@@ -1,15 +1,15 @@
 const express = require('express')
 const app = express();
 const port = process.env.PORT || 3000
-const LoginRouter = require('./Router/LoginRoute/Login');
+const accountRouter = require('./Router/accountRoute/accounts');
 const { default: mongoose } = require('mongoose');
 
 
-app.use('/loginroute', LoginRouter)
+app.use('/accounts', accountRouter)
 
 
 app.get('/',((req,res)=>{
-    res.redirect('/loginroute')
+    res.redirect('/accounts')
 }))
 
 
