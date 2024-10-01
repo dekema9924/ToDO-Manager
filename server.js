@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000
 const accountRouter = require('./Router/accountRoute/accounts');
 const { default: mongoose } = require('mongoose');
+require('dotenv').config()
 
 
 app.use('/accounts', accountRouter)
@@ -15,6 +16,6 @@ app.get('/',((req,res)=>{
 
 app.listen(port, (()=>{
     console.log(`server open on port ${port}`)
-    mongoose.connect('mongodb://localhost:27017/todoaccounts')
+    mongoose.connect(process.env.DB_URL)
     
 }))
